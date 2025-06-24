@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.missiondefis"
+    namespace = "dev.mickablondo.missiondefis"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.missiodefis"
+        applicationId = "dev.mickablondo.missiondefis"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -29,8 +29,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
     kotlinOptions {

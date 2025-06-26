@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#BA68C8"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/editTextChildName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nom de l'enfant"
+        android:inputType="textPersonName"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/white"/>
+
+    <Button
+        android:id="@+id/buttonAddChild"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ajouter un enfant"
+        android:layout_marginTop="8dp"/>
+
+    <ListView
+        android:id="@+id/listChildren"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:dividerHeight="1dp"
+        android:divider="#eee"
+        android:paddingTop="8dp"
+        android:background="@android:color/white"/>
+</LinearLayout>

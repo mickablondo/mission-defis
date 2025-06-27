@@ -9,7 +9,7 @@ import kotlinx.coroutines.launch
 
 class MissionViewModel(application: Application) : AndroidViewModel(application) {
     private val db = MissionDatabase.getDatabase(application)
-    val children = db.childDao().getAll()
+    val children: LiveData<List<Child>> = db.childDao().getAll().asLiveData()
 
     private val _challenges = MutableLiveData<List<Challenge>>()
     val challenges: LiveData<List<Challenge>> = _challenges

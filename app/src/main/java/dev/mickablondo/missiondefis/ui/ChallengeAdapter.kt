@@ -1,11 +1,12 @@
 package dev.mickablondo.missiondefis.ui
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.CompoundButton
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import dev.mickablondo.missiondefis.R
 import dev.mickablondo.missiondefis.databinding.ItemChallengeBinding
 import dev.mickablondo.missiondefis.model.Challenge
 
@@ -25,8 +26,9 @@ class ChallengeAdapter(
 
     inner class ChallengeViewHolder(private val binding: ItemChallengeBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        private val context: Context = binding.root.context
         fun bind(challenge: Challenge) {
-            binding.checkbox.text = "${challenge.icon} ${challenge.title}"
+            binding.checkbox.text = context.getString(R.string.challenge_label, challenge.icon, challenge.title)
             binding.checkbox.isChecked = challenge.completed
 
             binding.checkbox.setOnCheckedChangeListener(null)

@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.mickablondo.missiondefis.databinding.ActivityChildChallengesEditBinding
-import dev.mickablondo.missiondefis.model.Challenge
 import kotlinx.coroutines.launch
 
 class ChildChallengesEditActivity : AppCompatActivity() {

@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Missio Défis</string>
+    <string name="app_name">Mission Défis</string>
     <string name="start">Commencer</string>
     <string name="add_challenge">Ajouter un défi</string>
     <string name="reward_message">Bravo %1$s ! Tu as terminé tous tes défis 🎉</string>
+    <string name="challenge_label">%1$s %2$s</string>
 </resources>

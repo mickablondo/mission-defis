@@ -14,7 +14,6 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,11 +42,14 @@ android {
 }
 
 kapt {
+    // Ne PAS mettre -source et -target ici, ça pose problème
     javacOptions {
-        option("-source", "17")
-        option("-target", "17")
+        // uniquement les add-exports JVM pour éviter l'IllegalAccessError
         option("-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED")
+        option("-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED")
+        option("-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED")
     }
+    correctErrorTypes = true
 }
 
 dependencies {
@@ -66,7 +68,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.1")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
 
-    // Kotlin Coroutines (compatible avec Kotlin 1.9.10)
+    // Kotlin Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
     testImplementation("junit:junit:4.13.2")

@@ -1,17 +1,17 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.kapt")
+    id("org.jetbrains.kotlin.android") version "1.9.23"
+    id("org.jetbrains.kotlin.kapt") version "1.9.23"
 }
 
 android {
     namespace = "dev.mickablondo.missiondefis"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "dev.mickablondo.missiondefis"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -59,7 +59,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.1")
 
     // Kotlin Coroutines
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.23")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")

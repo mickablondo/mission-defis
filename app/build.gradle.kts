@@ -34,7 +34,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
     }
 
     buildFeatures {
@@ -44,7 +44,9 @@ android {
 
 kapt {
     javacOptions {
-        option("-J--add-exports", "jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED")
+        option("-source", "17")
+        option("-target", "17")
+        option("-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED")
     }
 }
 

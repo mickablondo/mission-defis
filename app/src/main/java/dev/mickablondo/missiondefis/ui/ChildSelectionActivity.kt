@@ -2,6 +2,7 @@ package dev.mickablondo.missiondefis.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import dev.mickablondo.missiondefis.databinding.ActivityChildSelectionBinding
@@ -20,8 +21,12 @@ class ChildSelectionActivity : AppCompatActivity() {
         binding = ActivityChildSelectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val forceSelectChild = intent.getBooleanExtra("forceSelectChild", false)
         val savedChildId = loadSelectedChildId(this)
-        if (savedChildId != null) {
+
+        if (!forceSelectChild && savedChildId != null) {
             viewModel.children.observe(this) { children ->
                 val savedChild = children.find { it.id == savedChildId }
                 if (savedChild != null) {
@@ -47,5 +52,15 @@ class ChildSelectionActivity : AppCompatActivity() {
         intent.putExtra("childName", child.name)
         startActivity(intent)
         finish()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

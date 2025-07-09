@@ -3,6 +3,7 @@ package dev.mickablondo.missiondefis.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -30,6 +31,8 @@ class ChildChallengesEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChildChallengesEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         childId = intent.getIntExtra("childId", -1)
         childName = intent.getStringExtra("childName") ?: ""
@@ -61,6 +64,16 @@ class ChildChallengesEditActivity : AppCompatActivity() {
                 binding.editTextChallengeTitle.text.clear()
                 binding.editTextChallengeIcon.text.clear()
             }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()  // Termine ParentScreenActivity pour revenir en arrière
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

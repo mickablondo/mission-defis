@@ -18,7 +18,7 @@ Mission Defis is an Android application designed to engage children with fun dai
 ## 🧸 License
 Code is open for educational and personal use. Contact the author for redistribution or commercial use.
 
-## Screenshots
+## 📱 Screenshots
 
 Home screen :  
 ![img.png](images/ecran_accueil.png)  

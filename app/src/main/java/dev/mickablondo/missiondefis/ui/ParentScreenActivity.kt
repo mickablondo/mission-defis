@@ -1,6 +1,7 @@
 package dev.mickablondo.missiondefis.ui
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -21,6 +22,9 @@ class ParentScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityParentScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Afficher la flèche retour dans la barre d’action
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, childrenNames)
         binding.listChildren.adapter = adapter
@@ -50,6 +54,16 @@ class ParentScreenActivity : AppCompatActivity() {
             val child = childrenList[position]
             // Ouvre l'écran de gestion des défis pour cet enfant
             ChildChallengesEditActivity.start(this, child.id, child.name)
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                finish()  // Termine ParentScreenActivity pour revenir en arrière
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 }

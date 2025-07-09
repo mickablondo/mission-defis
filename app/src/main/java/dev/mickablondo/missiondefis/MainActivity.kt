@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.mickablondo.missiondefis.databinding.ActivityMainBinding
+import dev.mickablondo.missiondefis.ui.ChildSelectionActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

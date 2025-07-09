@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.mickablondo.missiondefis.databinding.ActivityMainBinding
-import dev.mickablondo.missiondefis.ui.ChildSelectionActivity
+import dev.mickablondo.missiondefis.ui.RoleSelectionActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonStart.setOnClickListener {
-            val intent = Intent(this, ChildSelectionActivity::class.java)
+            val intent = Intent(this, RoleSelectionActivity::class.java)
             startActivity(intent)
         }
     }

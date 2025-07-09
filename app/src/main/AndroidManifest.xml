@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.ChildSelectionActivity" />
+        <activity android:name=".RewardActivity" />
+        <activity android:name=".ui.ChildChallengesActivity" />
+        <activity android:name=".ui.ParentScreenActivity" />
+        <activity android:name=".ui.ChildChallengesEditActivity" />
     </application>
 
 </manifest>

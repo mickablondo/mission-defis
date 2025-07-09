@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.MissionDefis" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Personnalisation des couleurs etc -->
+        <item name="colorPrimary">@color/holo_purple_light</item>
+        <item name="colorPrimaryVariant">@color/holo_purple_light</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+    </style>
+</resources>

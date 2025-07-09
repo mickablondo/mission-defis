@@ -28,10 +28,11 @@ class ChallengeAdapter(
         RecyclerView.ViewHolder(binding.root) {
         private val context: Context = binding.root.context
         fun bind(challenge: Challenge) {
+            binding.checkbox.setOnCheckedChangeListener(null) // D'abord : annuler tout ancien listener
+
             binding.checkbox.text = context.getString(R.string.challenge_label, challenge.icon, challenge.title)
             binding.checkbox.isChecked = challenge.completed
 
-            binding.checkbox.setOnCheckedChangeListener(null)
             binding.checkbox.setOnCheckedChangeListener { _, isChecked ->
                 onCheckChanged(challenge, isChecked)
             }

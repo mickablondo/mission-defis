@@ -31,7 +31,7 @@ class MissionViewModel(application: Application) : AndroidViewModel(application)
     }
 
     fun markChallengeDone(challenge: Challenge) = viewModelScope.launch {
-        db.challengeDao().update(challenge.copy(completed = true))
+        db.challengeDao().update(challenge)
     }
 
     fun resetChallenges(childId: Int) = viewModelScope.launch {

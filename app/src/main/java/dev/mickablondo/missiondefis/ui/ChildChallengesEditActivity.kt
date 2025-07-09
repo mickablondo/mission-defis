@@ -39,7 +39,12 @@ class ChildChallengesEditActivity : AppCompatActivity() {
 
         title = "Défis de $childName"
 
-        val adapter = ChallengeAdapter { _, _ -> /* Pas de modification depuis ici */ }
+        val adapter = ChallengeAdapter { challenge, isChecked ->
+            lifecycleScope.launch {
+                viewModel.markChallengeDone(challenge.copy(completed = isChecked))
+                Toast.makeText(this@ChildChallengesEditActivity, "Défi ${if (isChecked) "coché" else "décoché"}", Toast.LENGTH_SHORT).show()
+            }
+        }
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
 

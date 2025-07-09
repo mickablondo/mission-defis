@@ -7,7 +7,7 @@
 
     <TextView
         android:id="@+id/title"
-        android:text="Missio Défis"
+        android:text="Mission Défis"
         android:textSize="32sp"
         android:textColor="@android:color/white"
         android:layout_marginBottom="24dp"

@@ -4,6 +4,15 @@ plugins {
     kotlin("kapt") version "1.9.10"
 }
 
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin" && requested.name.startsWith("kotlin-stdlib")) {
+            useVersion("1.9.10")
+            because("Évite la version Kotlin 2.1.10 incompatible avec le compilateur 1.9.10")
+        }
+    }
+}
+
 android {
     namespace = "dev.mickablondo.missiondefis"
     compileSdk = 35

@@ -43,6 +43,13 @@ class ChildSelectionActivity : AppCompatActivity() {
                 saveSelectedChildId(this, child.id)
                 openChallenges(child)
             }
+
+            // Afficher le message si la liste est vide, sinon masquer
+            binding.textEmpty.visibility = if (children.isEmpty()) {
+                android.view.View.VISIBLE
+            } else {
+                android.view.View.GONE
+            }
         }
     }
 

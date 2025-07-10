@@ -1,22 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:background="@color/holo_purple_light">
+    android:background="@drawable/background_gradient"
+    android:paddingTop="48dp"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingBottom="24dp">
 
+    <!-- Petite icône en haut centrée -->
+    <ImageView
+        android:id="@+id/iconRocket"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Icone fusée"
+        android:src="@drawable/ic_mountain" />
+
+    <!-- Titre -->
     <TextView
         android:id="@+id/title"
-        android:text="Mission Défis"
-        android:textSize="32sp"
-        android:textColor="@android:color/white"
-        android:layout_marginBottom="24dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iconRocket"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Mission Défis"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
+    <!-- Bouton Commencer -->
     <Button
         android:id="@+id/buttonStart"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="#8e24aa"
+        android:padding="16dp"
         android:text="Commencer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:textColor="@android:color/white"
+        android:textSize="20sp" />
+</RelativeLayout>

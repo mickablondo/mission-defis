@@ -3,7 +3,9 @@ package dev.mickablondo.missiondefis.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -37,6 +39,7 @@ class ChildChallengesActivity : AppCompatActivity() {
             onCheckChanged = { challenge, checked ->
                 lifecycleScope.launch {
                     viewModel.markChallengeDone(challenge.copy(completed = checked))
+                    viewModel.getChallengesForChild(childId) // relance la récupération
                 }
             }
         )
@@ -47,11 +50,12 @@ class ChildChallengesActivity : AppCompatActivity() {
         viewModel.getChallengesForChild(childId)
         viewModel.challenges.observe(this) { list ->
             adapter.submitList(list)
-            if (list.isNotEmpty() && list.all { it.completed }) {
-                // tous les défis sont cochés
-                RewardActivity.start(this, childName)
-                finish()
-            }
+
+            val allDone = list.isNotEmpty() && list.all { it.completed }
+            binding.buttonReward.isEnabled = allDone
+            binding.buttonReward.visibility = if (allDone) View.VISIBLE else View.GONE
+
+            Log.d("ChildChallengesActivity", "Challenges updated, allDone=$allDone, list=$list")
         }
 
         binding.buttonChangeChild.setOnClickListener {
@@ -69,6 +73,10 @@ class ChildChallengesActivity : AppCompatActivity() {
             finish()
         }
 
+        binding.buttonReward.setOnClickListener {
+            RewardActivity.start(this, childId, childName)
+            finish()
+        }
     }
 
     private fun saveSelectedChildId(context: Context, childId: Int?) {

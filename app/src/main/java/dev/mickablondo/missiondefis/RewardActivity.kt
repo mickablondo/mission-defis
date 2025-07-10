@@ -2,6 +2,7 @@ package dev.mickablondo.missiondefis
 
 import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +11,7 @@ import dev.mickablondo.missiondefis.ui.ChildChallengesActivity
 
 class RewardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRewardBinding
+    private var mediaPlayer: MediaPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +29,18 @@ class RewardActivity : AppCompatActivity() {
             intent.putExtra("childId", childId)
             intent.putExtra("childName", childName)
             startActivity(intent)
+            finish()
+        }
+
+        // Initialiser MediaPlayer avec le son festif
+        mediaPlayer = MediaPlayer.create(this, R.raw.applause)
+        mediaPlayer?.start()
+
+        binding.buttonBackToChallenges.setOnClickListener {
+            // Arrêter le son s'il joue encore
+            mediaPlayer?.stop()
+            mediaPlayer?.release()
+            mediaPlayer = null
             finish()
         }
     }
@@ -48,5 +62,12 @@ class RewardActivity : AppCompatActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Libérer MediaPlayer si l'activité est détruite avant la fin du son
+        mediaPlayer?.release()
+        mediaPlayer = null
     }
 }

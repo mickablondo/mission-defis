@@ -9,26 +9,32 @@
     android:paddingBottom="16dp"
     android:paddingTop="48dp">
 
-    <!-- Liste des enfants -->
-    <ListView
-        android:id="@+id/listChildren"
+    <!-- Conteneur pour la liste et le message vide -->
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:divider="#eee"
-        android:dividerHeight="1dp" />
+        android:layout_weight="1">
 
-    <!-- Message affiché si aucun enfant -->
-    <TextView
-        android:id="@+id/textEmpty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aucun enfant trouvé. Merci de contacter un parent."
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:visibility="gone"
-        android:layout_gravity="center"/>
+        <!-- Liste des enfants -->
+        <ListView
+            android:id="@+id/listChildren"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#eee"
+            android:dividerHeight="1dp" />
+
+        <!-- Message affiché si aucun enfant -->
+        <TextView
+            android:id="@+id/textEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Aucun enfant trouvé. Merci de contacter un parent."
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
+    </FrameLayout>
 
     <!-- Copyright placé en bas -->
     <include
@@ -37,6 +43,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"/>
-
 </LinearLayout>
+
 

@@ -48,6 +48,8 @@
             android:textColor="@android:color/white"
             android:textSize="12sp" />
     </LinearLayout>
+    <!-- Copyright toujours en bas -->
+    <include layout="@layout/view_copyright" />
 </LinearLayout>
 
 

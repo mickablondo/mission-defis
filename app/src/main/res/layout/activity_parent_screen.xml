@@ -16,23 +16,32 @@
         android:hint="Nom de l'enfant"
         android:inputType="textPersonName"
         android:textColor="@android:color/white"
-        android:backgroundTint="@android:color/white"/>
+        android:backgroundTint="@android:color/white" />
 
     <Button
         android:id="@+id/buttonAddChild"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ajouter un enfant"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp" />
 
     <ListView
         android:id="@+id/listChildren"
         android:layout_width="match_parent"
-        android:layout_height="482dp"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:background="@android:color/white"
         android:textColor="@android:color/black"
         android:divider="#eee"
         android:dividerHeight="1dp"
         android:paddingTop="8dp" />
+
+    <!-- Copyright discret en bas -->
+    <include
+        layout="@layout/view_copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
+

@@ -37,4 +37,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingTop="8dp"/>
+
+    <!-- Copyright toujours en bas -->
+    <include layout="@layout/view_copyright" />
 </LinearLayout>

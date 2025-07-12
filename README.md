@@ -5,9 +5,10 @@ Mission Defis is an Android application designed to engage children with fun dai
 - Android / Kotlin
 - MVVM architecture
 - Room DB
-- ViewModel + LiveData
-- XML layouts
-- Material Design 3
+- Jetpack : ViewModel, LiveData, Room
+- UI : XML layouts + Material Design 3
+- Build & dépendances : Gradle
+- IDE : Android Studio
 
 ## 🚀 Getting started
 1. Clone the repository

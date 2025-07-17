@@ -37,4 +37,8 @@ class MissionViewModel(application: Application) : AndroidViewModel(application)
     fun resetChallenges(childId: Int) = viewModelScope.launch {
         db.challengeDao().deleteByChild(childId)
     }
+
+    fun deleteChild(child: Child) = viewModelScope.launch {
+        db.childDao().delete(child)
+    }
 }

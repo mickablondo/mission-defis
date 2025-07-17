@@ -2,9 +2,9 @@ package dev.mickablondo.missiondefis.ui
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import dev.mickablondo.missiondefis.databinding.ActivityParentScreenBinding
@@ -15,25 +15,41 @@ class ParentScreenActivity : AppCompatActivity() {
     private lateinit var binding: ActivityParentScreenBinding
     private val viewModel: MissionViewModel by viewModels { MissionViewModelFactory(application) }
 
-    private val childrenNames = mutableListOf<String>()
     private val childrenList = mutableListOf<Child>()
+
+    private lateinit var adapter: ChildAdapterWithDelete
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityParentScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Afficher la flèche retour dans la barre d’action
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, childrenNames)
+        adapter = ChildAdapterWithDelete(
+            childrenList,
+            onDeleteClick = { child ->
+                // Affiche une boîte de confirmation avant suppression
+                AlertDialog.Builder(this)
+                    .setTitle("Supprimer enfant")
+                    .setMessage("Voulez-vous vraiment supprimer ${child.name} ?")
+                    .setPositiveButton("Oui") { _, _ ->
+                        lifecycleScope.launch {
+                            viewModel.deleteChild(child)
+                        }
+                    }
+                    .setNegativeButton("Non", null)
+                    .show()
+            },
+            onItemClick = { child ->
+                ChildChallengesEditActivity.start(this, child.id, child.name)
+            }
+        )
         binding.listChildren.adapter = adapter
 
         viewModel.children.observe(this) { children ->
             childrenList.clear()
             childrenList.addAll(children)
-            childrenNames.clear()
-            childrenNames.addAll(children.map { it.name })
             adapter.notifyDataSetChanged()
         }
 
@@ -48,12 +64,6 @@ class ParentScreenActivity : AppCompatActivity() {
                     Toast.makeText(this@ParentScreenActivity, "Enfant ajouté", Toast.LENGTH_SHORT).show()
                 }
             }
-        }
-
-        binding.listChildren.setOnItemClickListener { _, _, position, _ ->
-            val child = childrenList[position]
-            // Ouvre l'écran de gestion des défis pour cet enfant
-            ChildChallengesEditActivity.start(this, child.id, child.name)
         }
     }
 

@@ -28,6 +28,7 @@
         android:id="@+id/buttonAddChallenge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
         android:text="Ajouter le défi"
         android:layout_marginTop="8dp"/>
 

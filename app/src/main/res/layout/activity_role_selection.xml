@@ -18,12 +18,14 @@
             android:id="@+id/buttonParent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
             android:text="Je suis un parent" />
 
         <Button
             android:id="@+id/buttonChild"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
             android:text="Je suis un enfant"
             android:layout_marginTop="24dp"/>
     </LinearLayout>

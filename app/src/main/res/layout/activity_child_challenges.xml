@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="#E1BEE7"
     android:paddingLeft="16dp"
@@ -30,7 +31,8 @@
         android:text="🎁 Voir la récompense"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:cornerRadius="24dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
